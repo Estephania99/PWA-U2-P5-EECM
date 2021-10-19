@@ -35,12 +35,12 @@ self.addEventListener('install', (event)=>{
         }else{
             return cache.addAll([
                 PATH + '/',
-                PATH + 'index.html',
-                PATH + 'css/page.css',
-                PATH + 'img/inicio.jpg',
-                PATH + 'img/noimage.jpg',
-                PATH + 'js/app.js',
-                PATH + 'pages/view-offline.html'
+                PATH + '/index.html',
+                PATH + '/css/page.css',
+                PATH + '/img/inicio.jpg',
+                PATH + '/img/noimage.jpg',
+                PATH + '/js/app.js',
+                PATH + '/pages/view-offline.html'
             ]);
         }
     });
