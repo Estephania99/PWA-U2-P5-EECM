@@ -127,15 +127,28 @@ self.addEventListener('fetch', (event)=>{
             return respuestaNetwork.clone();
         }).catch(()=>{
             console.log('Error al solicitar el recurso');
+            
+            if(url.includes('localhost')){
+                if(event.request.headers.get('accept').includes('text/html')){
+                    return caches.match('/pages/view-offline.html')
+                }
 
-            if(event.request.headers.get('accept').includes('text/html')){
-                return caches.match('/pages/view-offline.html')
+                if(event.request.headers.get('accept').includes('image')){
+                    console.log('Imagen no encontrada');
+                    return caches.match('/img/noimage.jpg')
+                }
+            }else{
+                if(event.request.headers.get('accept').includes('text/html')){
+                    return caches.match(PATH+'/pages/view-offline.html')
+                }
+
+                if(event.request.headers.get('accept').includes('image')){
+                    console.log('Imagen no encontrada');
+                    return caches.match(PATH+'/img/noimage.jpg')
+                }
             }
 
-            if(event.request.headers.get('accept').includes('image')){
-                console.log('Imagen no encontrada');
-                return caches.match('/img/noimage.jpg')
-            }
+            
 
         });
     });
