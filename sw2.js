@@ -25,12 +25,12 @@ self.addEventListener('install', (event)=>{
         if(url.includes('localhost')){
             return cache.addAll([
                 '/',
-                'index.html',
-                'css/page.css',
-                'img/inicio.jpg',
-                'img/noimage.jpg',
-                'js/app.js',
-                'pages/view-offline.html'
+                '/index.html',
+                '/css/page.css',
+                '/img/inicio.jpg',
+                '/img/noimage.jpg',
+                '/js/app.js',
+                '/pages/view-offline.html'
             ]);
         }else{
             return cache.addAll([
